@@ -25,8 +25,8 @@ end
 
 function ItemFrame:RegisterEvents()
 	self:UnregisterEvents()
-	self:RegisterFrameMessage('PLAYER_CHANGED', 'Update')
-	self:RegisterMessage('UPDATE_ALL', 'RequestLayout')
+	self:RegisterFrameSignal('PLAYER_CHANGED', 'Update')
+	self:RegisterSignal('UPDATE_ALL', 'RequestLayout')
 
 	if self:IsCached() then
 		self:RegisterEvent('VOID_STORAGE_OPEN', 'RegisterEvents')
@@ -64,7 +64,7 @@ function ItemFrame:NumSlots()
 	elseif self:Type() == WITHDRAW then
 		return GetNumVoidTransferWithdrawal()
 	else
-		return 80 * 2
+		return 160
 	end
 end
 
